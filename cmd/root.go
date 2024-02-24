@@ -17,7 +17,13 @@ var rootCmd = &cobra.Command{
 				with the total execution time, total requests made,
 				number of requests that returned HTTP status code 200 and
 				number of requests that returned other HTTP status codes.`,
-	// Run: func(cmd *cobra.Command, args []string) { },
+	Run: func(cmd *cobra.Command, args []string) {
+		url, _ := cmd.Flags().GetString("url")
+		requests, _ := cmd.Flags().GetInt("requests")
+		concurrency, _ := cmd.Flags().GetInt("concurrency")
+
+		stressTest(url, requests, concurrency)
+	},
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -31,6 +37,7 @@ func Execute() {
 
 func init() {
 	rootCmd.Flags().StringP("url", "u", "", "URL to test")
+	rootCmd.MarkFlagRequired("url")
 	rootCmd.Flags().IntP("requests", "r", 1, "Number of requests to make")
 	rootCmd.Flags().IntP("concurrency", "c", 1, "Number of concurrent requests")
 }
