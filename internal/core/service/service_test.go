@@ -41,12 +41,11 @@ func (suite *ServiceTestSuite) TestExecute() {
 		name          string
 		serverHandler http.HandlerFunc
 		expectations  func(repo *mock.MockStressTestRepository)
-		expectedError error
 	}{
 		{
 			name: "All status 200",
 			serverHandler: func(w http.ResponseWriter, r *http.Request) {
-				w.WriteHeader(200)
+				w.WriteHeader(http.StatusOK)
 			},
 			expectations: func(repo *mock.MockStressTestRepository) {
 				repo.EXPECT().Save(200).Times(10)
