@@ -6,6 +6,8 @@ package cmd
 import (
 	"os"
 
+	"github.com/kameikay/stress-test/internal/core/service"
+	"github.com/kameikay/stress-test/internal/repository"
 	"github.com/spf13/cobra"
 )
 
@@ -22,12 +24,12 @@ var rootCmd = &cobra.Command{
 		requests, _ := cmd.Flags().GetInt("requests")
 		concurrency, _ := cmd.Flags().GetInt("concurrency")
 
-		stressTest(url, requests, concurrency)
+		repo := repository.NewRequestsMemory()
+		stressService := service.New(repo)
+		stressService.Execute(url, requests, concurrency)
 	},
 }
 
-// Execute adds all child commands to the root command and sets flags appropriately.
-// This is called by main.main(). It only needs to happen once to the rootCmd.
 func Execute() {
 	err := rootCmd.Execute()
 	if err != nil {
