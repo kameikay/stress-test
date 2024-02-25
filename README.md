@@ -26,6 +26,18 @@ Make sure you have Go installed on your system. To run the project, follow these
     ./stress-test --url=http://example.com --requests=1000 --concurrency=10
     ```
 
+Alternatively, you can run the project using Docker. Follow these steps:
+
+1. Pull the Docker image from Docker Hub:
+    ```
+    docker pull kameikay/stress-test:latest
+    ```
+
+2. Run the Docker container, providing the necessary parameters:
+    ```
+    docker run kameikay/stress-test:latest --url=http://example.com --requests=1000 --concurrency=10
+    ```
+
 ## Parameters
 
 - `--url`: The URL of the service to be tested.
