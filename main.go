@@ -1,6 +1,5 @@
 /*
-Copyright © 2024 NAME HERE <EMAIL ADDRESS>
-
+Copyright © 2024 VICTOR KAMEI KAY <kameikay@gmail.com>
 */
 package main
 
