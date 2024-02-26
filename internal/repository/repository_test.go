@@ -66,3 +66,12 @@ func (suite *RequestsMemoryTestSuite) TestGetOthersStatus() {
 	others := requestsMemory.GetOthersStatus()
 	suite.Equal(1, others[404])
 }
+
+func (suite *RequestsMemoryTestSuite) TestGetErrorRequests() {
+	requestsMemory := NewRequestsMemory()
+	requestsMemory.Save(0)
+	requestsMemory.Save(0)
+	requestsMemory.Save(404)
+
+	suite.Equal(2, requestsMemory.GetErrorRequests())
+}

@@ -46,3 +46,7 @@ func (s *RequestsMemory) GetOthersStatus() map[int]int {
 
 	return others
 }
+
+func (s *RequestsMemory) GetErrorRequests() int {
+	return s.Requests[0]
+}
