@@ -33,6 +33,20 @@ func (m *MockStressTestRepository) EXPECT() *MockStressTestRepositoryMockRecorde
 	return m.recorder
 }
 
+// GetErrorRequests mocks base method.
+func (m *MockStressTestRepository) GetErrorRequests() int {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "GetErrorRequests")
+	ret0, _ := ret[0].(int)
+	return ret0
+}
+
+// GetErrorRequests indicates an expected call of GetErrorRequests.
+func (mr *MockStressTestRepositoryMockRecorder) GetErrorRequests() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "GetErrorRequests", reflect.TypeOf((*MockStressTestRepository)(nil).GetErrorRequests))
+}
+
 // GetOthersStatus mocks base method.
 func (m *MockStressTestRepository) GetOthersStatus() map[int]int {
 	m.ctrl.T.Helper()

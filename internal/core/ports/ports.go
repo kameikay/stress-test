@@ -5,4 +5,5 @@ type StressTestRepository interface {
 	GetTotalRequests() int
 	GetStatus200() int
 	GetOthersStatus() map[int]int
+	GetErrorRequests() int
 }
