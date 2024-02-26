@@ -56,6 +56,7 @@ func (s *service) PrintResponse(initialTime time.Time) {
 	fmt.Println("Total time: ", time.Since(initialTime))
 	fmt.Println("Total requests: ", s.repository.GetTotalRequests())
 	fmt.Println("Status 200: ", s.repository.GetStatus200())
+	fmt.Println("Error requests: ", s.repository.GetErrorRequests())
 
 	for k, v := range s.repository.GetOthersStatus() {
 		fmt.Println("Status ", k, ": ", v)

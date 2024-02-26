@@ -51,6 +51,7 @@ func (suite *ServiceTestSuite) TestExecute() {
 				repo.EXPECT().Save(200).Times(10)
 				repo.EXPECT().GetTotalRequests().Return(10)
 				repo.EXPECT().GetStatus200().Return(10)
+				repo.EXPECT().GetErrorRequests().Return(0)
 				repo.EXPECT().GetOthersStatus().Return(map[int]int{})
 			},
 		},
@@ -63,6 +64,7 @@ func (suite *ServiceTestSuite) TestExecute() {
 				repo.EXPECT().Save(404).Times(10)
 				repo.EXPECT().GetTotalRequests().Return(10)
 				repo.EXPECT().GetStatus200().Return(0)
+				repo.EXPECT().GetErrorRequests().Return(0)
 				repo.EXPECT().GetOthersStatus().Return(map[int]int{404: 10})
 			},
 		},
